@@ -1,0 +1,74 @@
+driver:
+  name: ec2
+  aws_ssh_key_id: <%= ENV['AWS_SSH_KEY'] %>
+  security_group_ids:  <%= ENV['AWS_SECURITY_GROUPS'] %>
+  region: <%= ENV['AWS_REGION'] %>
+  availability_zone: <%= ENV['AWS_AVAILABILITY_ZONE'] %>
+  require_chef_omnibus: true
+  subnet_id: <%= ENV['AWS_SUBNET'] %>
+  instance_type: <%= ENV['INSTANCE_SIZE'] %>
+  associate_public_ip: false
+  interface: private
+  user_data: <%= ENV['USER_DATA_PATH'] %>
+  tags:
+    OWNER: <%= ENV['AWS_OWNER_TAG'] %>
+    Name: <%= ENV['AWS_NAME_TAG'] %>
+
+provisioner:
+  name: chef_zero
+
+transport:
+  ssh_key: ~/.ssh/<%= ENV['AWS_SSH_KEY'] %>.pem
+
+platforms:
+  - name: centos-7.1
+    driver:
+      image_id: <%= ENV['AWS_CENTOS7_AMI_ID'] %>
+      instance_type: <%= ENV['LINUX_INSTANCE_SIZE'] %>
+      user_data: <%= ENV['LINUX_USER_DATA_PATH'] %>
+    transport:
+      username: <%= ENV['AWS_CENTOS7_USERNAME'] %>
+
+suites:
+  - name: default
+    run_list:
+      - recipe[gd-test-helper::default]
+      - recipe[tyk::default]
+    attributes:
+    chef_client:
+      config:
+        log_level: ":debug"
+
+  - name: gateway
+    run_list:
+      - recipe[gd-test-helper::default]
+      - recipe[tyk::install_redis]
+      - recipe[tyk::install_mongo]
+      - recipe[tyk::install_gateway]
+    attributes:
+    chef_client:
+      config:
+        log_level: ":debug"
+
+  - name: dashboard
+    run_list:
+      - recipe[gd-test-helper::default]
+      - recipe[tyk::install_redis]
+      - recipe[tyk::install_mongo]
+      - recipe[tyk::install_dashboard]
+    attributes:
+    chef_client:
+      config:
+        log_level: ":debug"
+
+  - name: pump
+    run_list:
+      - recipe[gd-test-helper::default]
+      - recipe[tyk::install_redis]
+      - recipe[tyk::install_mongo]
+      - recipe[tyk::install_pump]
+    attributes:
+    chef_client:
+      config:
+        log_level: ":debug"
+

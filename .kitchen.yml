@@ -3,14 +3,53 @@ driver:
   name: vagrant
 
 provisioner:
-  name: chef_solo
+  name: chef_zero
 
 platforms:
-  - name: ubuntu-14.04
   - name: centos-7.1
+    driver:
+      box: centos-71
+      box_url: https://deploy.gmti.gbahn.net/Images/centos7/vagrant/centos71-cloud-1.0.0.box
 
 suites:
   - name: default
     run_list:
+      - recipe[gd-test-helper::default]
       - recipe[tyk::default]
     attributes:
+    chef_client:
+      config:
+        log_level: ":debug"
+
+  - name: gateway
+    run_list:
+      - recipe[gd-test-helper::default]
+      - recipe[tyk::install_redis]
+      - recipe[tyk::install_mongo]
+      - recipe[tyk::install_gateway]
+    attributes:
+    chef_client:
+      config:
+        log_level: ":debug"
+
+  - name: dashboard
+    run_list:
+      - recipe[gd-test-helper::default]
+      - recipe[tyk::install_redis]
+      - recipe[tyk::install_mongo]
+      - recipe[tyk::install_dashboard]
+    attributes:
+    chef_client:
+      config:
+        log_level: ":debug"
+
+  - name: pump
+    run_list:
+      - recipe[gd-test-helper::default]
+      - recipe[tyk::install_redis]
+      - recipe[tyk::install_mongo]
+      - recipe[tyk::install_pump]
+    attributes:
+    chef_client:
+      config:
+        log_level: ":debug"

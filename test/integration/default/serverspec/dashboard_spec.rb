@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 require 'serverspec'
 set :backend, :exec
 
