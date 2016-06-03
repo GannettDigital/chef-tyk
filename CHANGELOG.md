@@ -3,6 +3,12 @@ tyk CHANGELOG
 
 This file is used to list changes made in each version of the tyk cookbook.
 
+0.2.0
+-----
+- Jason Neves - Updated attributes to support newer version of Tyk (2.0)
+  Updated serverspec testing and added spec tests
+  Added to support tyk-pump module for analytics
+
 0.1.2
 -----
 - Fix configuration attributes for dashboard
