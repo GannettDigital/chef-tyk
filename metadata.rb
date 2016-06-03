@@ -14,5 +14,5 @@ source_url 'https://github.com/GannettDigital/chef-tyk'
 issues_url 'https://github.com/GannettDigital/chef-tyk/issues'
 
 depends 'packagecloud', '~> 0.2.0'
-depends 'redisio', '~> 2.3.0'
-depends 'mongodb', '~> 0.16.2'
+depends 'redisio', '~> 2.4.0'
+depends 'mongodb', '~> 0.16.3'
