@@ -3,6 +3,10 @@ tyk CHANGELOG
 
 This file is used to list changes made in each version of the tyk cookbook.
 
+0.2.3
+-----
+- Jason Neves - corrected config for pump and updated tests accordingly
+
 0.2.2
 -----
 - Jason Neves - additional firewall rules and tests for tyk-pump
