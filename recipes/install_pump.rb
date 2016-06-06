@@ -6,20 +6,11 @@
 
 packagecloud_repo 'tyk/tyk-pump'
 
-include_recipe 'firewall'
-
 packagecloud_repo 'tyk/tyk-pump'
-
-firewall_rule 'tyk-pump' do
-  port node['tyk']['pump']['config']['listen_port']
-  protocol :tcp
-  command :allow
-  notifies :restart, 'firewall[default]', :immediately
-end
 
 package 'tyk-pump'
 
-template '/opt/tyk-pump/tyk.conf' do
+template '/opt/tyk-pump/pump.conf' do
   source 'tyk.conf.erb'
   variables(
     :config => node['tyk']['pump']['config']

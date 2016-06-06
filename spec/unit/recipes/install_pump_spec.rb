@@ -17,17 +17,12 @@ describe 'tyk::install_pump' do
       expect(chef_run).to create_packagecloud_repo('tyk/tyk-pump')
     end
 
-    it 'creates firewall rules' do
-      chef_run.converge(described_recipe)
-      expect(chef_run).to create_firewall_rule('tyk-pump')
-    end
-
     it 'installs the package `tyk-pump`' do
       expect(chef_run).to install_package('tyk-pump')
     end
 
-    it 'creates a template `/opt/tyk-pump/tyk.conf`' do
-      expect(chef_run).to create_template('/opt/tyk-pump/tyk.conf')
+    it 'creates a template `/opt/tyk-pump/pump.conf`' do
+      expect(chef_run).to create_template('/opt/tyk-pump/pump.conf')
     end
 
     it 'starts service `tyk-pump`' do
