@@ -17,6 +17,11 @@ describe 'tyk::install_gateway' do
       expect(chef_run).to create_packagecloud_repo('tyk/tyk-gateway')
     end
 
+    it 'creates firewall rules' do
+      chef_run.converge(described_recipe)
+      expect(chef_run).to create_firewall_rule('tyk-gateway')
+    end
+
     it 'installs the package `tyk-gateway`' do
       expect(chef_run).to install_package('tyk-gateway')
     end

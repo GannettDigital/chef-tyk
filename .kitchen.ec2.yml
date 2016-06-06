@@ -33,6 +33,7 @@ suites:
   - name: default
     run_list:
       - recipe[gd-test-helper::default]
+      - recipe[gdp-base-linux]
       - recipe[tyk::default]
     attributes:
     chef_client:
@@ -42,6 +43,7 @@ suites:
   - name: gateway
     run_list:
       - recipe[gd-test-helper::default]
+      - recipe[gdp-base-linux]
       - recipe[tyk::install_redis]
       - recipe[tyk::install_mongo]
       - recipe[tyk::install_gateway]
@@ -53,6 +55,7 @@ suites:
   - name: dashboard
     run_list:
       - recipe[gd-test-helper::default]
+      - recipe[gdp-base-linux]
       - recipe[tyk::install_redis]
       - recipe[tyk::install_mongo]
       - recipe[tyk::install_dashboard]
@@ -64,6 +67,7 @@ suites:
   - name: pump
     run_list:
       - recipe[gd-test-helper::default]
+      - recipe[gdp-base-linux]
       - recipe[tyk::install_redis]
       - recipe[tyk::install_mongo]
       - recipe[tyk::install_pump]
