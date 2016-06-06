@@ -1,6 +1,6 @@
 # Gateway
 default['tyk']['gateway']['install_path'] = '/opt/tyk-gateway'
-default['tyk']['gateway']['dashboard']['url'] = 'httpo://localhost'
+default['tyk']['gateway']['dashboard']['url'] = 'http://localhost'
 default['tyk']['gateway']['dashboard']['port'] = '3000'
 
 # Gateway configuration
