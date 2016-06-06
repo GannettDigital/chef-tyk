@@ -3,7 +3,16 @@
 #
 # Copyright (c) 2016 Gannett Co., Inc, All Rights Reserved.
 
+include_recipe 'firewall'
+
 packagecloud_repo 'tyk/tyk-dashboard'
+
+firewall_rule 'tyk-dashboard' do
+  port node['tyk']['dashboard']['config']['listen_port']
+  protocol :tcp
+  command :allow
+  notifies :restart, 'firewall[default]', :immediately
+end
 
 package 'tyk-dashboard'
 

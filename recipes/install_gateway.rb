@@ -3,7 +3,16 @@
 #
 # Copyright (c) 2016 Gannett Co., Inc, All Rights Reserved.
 
+include_recipe 'firewall'
+
 packagecloud_repo 'tyk/tyk-gateway'
+
+firewall_rule 'tyk-gateway' do
+  port node['tyk']['gateway']['config']['listen_port']
+  protocol :tcp
+  command :allow
+  notifies :restart, 'firewall[default]', :immediately
+end
 
 package 'tyk-gateway'
 
