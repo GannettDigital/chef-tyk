@@ -3,6 +3,10 @@ tyk CHANGELOG
 
 This file is used to list changes made in each version of the tyk cookbook.
 
+0.2.4
+-----
+- Jason Neves - added params for specifying package source, added new elements for ui langnage config
+
 0.2.3
 -----
 - Jason Neves - corrected config for pump and updated tests accordingly

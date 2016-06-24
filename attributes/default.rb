@@ -2,6 +2,7 @@
 default['tyk']['gateway']['install_path'] = '/opt/tyk-gateway'
 default['tyk']['gateway']['dashboard']['url'] = 'http://localhost'
 default['tyk']['gateway']['dashboard']['port'] = '3000'
+default['tyk']['gateway']['packagecloud_source'] = 'tyk/tyk-gateway'
 
 # Gateway configuration
 # The configuration file is generated from node['tyk']['gateway']['config']
@@ -50,6 +51,7 @@ default['tyk']['gateway']['config']['local_session_cache']['disable_cached_sessi
 
 # Dashboard
 default['tyk']['dashboard']['install_path'] = '/opt/tyk-dashboard'
+default['tyk']['dashboard']['packagecloud_source'] = 'tyk/tyk-dashboard'
 
 # Dashboard configuration
 # The configuration file is generated from node['tyk']['dashboard']['config']
@@ -98,10 +100,16 @@ default['tyk']['dashboard']['config']['ui']['nav'] = {}
 default['tyk']['dashboard']['config']['ui']['uptime'] = {}
 default['tyk']['dashboard']['config']['ui']['portal'] = {}
 default['tyk']['dashboard']['config']['ui']['designer'] = {}
+default['tyk']['dashboard']['config']['ui']['languages']['English'] = 'en'
+default['tyk']['dashboard']['config']['ui']['languages']['Chinese'] = 'cn'
+default['tyk']['dashboard']['config']['ui']['languages']['Korean'] = 'ko'
+default['tyk']['dashboard']['config']['ui']['default_lang'] = 'en'
+
 default['tyk']['dashboard']['config']['home_dir'] = node['tyk']['dashboard']['install_path']
 
 # Pump
 default['tyk']['pump']['install_path'] = '/opt/tyk-pump'
+default['tyk']['pump']['packagecloud_source'] = 'tyk/tyk-pump'
 
 # Pump configuration
 # The configuration file is generated from node['tyk']['pump']['config']

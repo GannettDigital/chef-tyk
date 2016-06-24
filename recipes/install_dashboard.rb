@@ -5,7 +5,7 @@
 
 include_recipe 'firewall'
 
-packagecloud_repo 'tyk/tyk-dashboard'
+packagecloud_repo node['tyk']['dashboard']['packagecloud_source']
 
 firewall_rule 'tyk-dashboard' do
   port node['tyk']['dashboard']['config']['listen_port']
