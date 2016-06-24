@@ -5,7 +5,7 @@
 
 include_recipe 'firewall'
 
-packagecloud_repo 'tyk/tyk-gateway'
+packagecloud_repo node['tyk']['gateway']['packagecloud_source']
 
 firewall_rule 'tyk-gateway' do
   port node['tyk']['gateway']['config']['listen_port']

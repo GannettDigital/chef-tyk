@@ -4,9 +4,7 @@
 #
 # Copyright (c) 2016 Gannett Co., Inc, All Rights Reserved.
 
-packagecloud_repo 'tyk/tyk-pump'
-
-packagecloud_repo 'tyk/tyk-pump'
+packagecloud_repo node['tyk']['pump']['packagecloud_source']
 
 package 'tyk-pump'
 
