@@ -10,7 +10,7 @@ gem 'rubocop', '= 0.36.0'
 gem 'chef-sugar', '= 3.3.0'
 
 group :test do
-  gem 'chefspec', '= 4.5.0'
+  gem 'chefspec', '= 4.7.0'
   gem 'chef-zero', '= 4.5.0'
 end
 
