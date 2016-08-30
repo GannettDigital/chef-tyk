@@ -13,6 +13,23 @@ describe 'tyk::install_gateway' do
       runner.converge(described_recipe)
     end
 
+    it 'creates a new system file limit' do
+      expect(chef_run).to create_limits_config('system limits')
+        .with(
+          use_system: true,
+          limits: [
+            { domain: '*', type: 'hard', item: 'nofile', value: '65536' },
+            { domain: '*', type: 'soft', item: 'nofile', value: '65536' },
+            { domain: '*', type: 'hard', item: 'nproc', value: '65536' },
+            { domain: '*', type: 'soft', item: 'nproc', value: '65536' },
+            { domain: 'root', type: 'hard', item: 'nofile', value: '65536' },
+            { domain: 'root', type: 'soft', item: 'nofile', value: '65536' },
+            { domain: 'root', type: 'hard', item: 'nproc', value: '65536' },
+            { domain: 'root', type: 'soft', item: 'nproc', value: '65536' }
+          ]
+        )
+    end
+
     it 'should create packagecloud_repo `tyk/tyk-gateway`' do
       expect(chef_run).to create_packagecloud_repo('tyk/tyk-gateway')
     end
