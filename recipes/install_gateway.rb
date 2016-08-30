@@ -4,6 +4,15 @@
 # Copyright (c) 2016 Gannett Co., Inc, All Rights Reserved.
 
 include_recipe 'firewall'
+include_recipe 'sysctl::apply'
+
+limits_config 'system limits' do
+  limits [
+    { domain: '*', type: 'hard', item: 'nofile', value: '65536' },
+    { domain: '*', type: 'soft', item: 'nofile', value: '65536' }
+  ]
+  use_system true
+end
 
 packagecloud_repo node['tyk']['gateway']['packagecloud_source']
 
