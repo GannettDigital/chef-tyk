@@ -2,8 +2,8 @@
 Description=Tyk API Gateway
 
 [Service]
-LimitNOFILE=<%= @open_file_limit %>
-LimitNPROC=<%= @open_file_limit %>
+LimitNOFILE=<%= @open_file_limit_nofile %>
+LimitNPROC=<%= @open_file_limit_nproc %>
 Type=simple
 User=root
 Group=root
