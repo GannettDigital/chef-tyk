@@ -31,6 +31,13 @@ end
 
 package 'tyk-gateway'
 
+template '/usr/lib/systemd/system/tyk-gateway.service' do
+  source 'tyk-gateway.service.erb'
+  variables(
+    :open_file_limit => node['tyk']['gateway']['open_file_limit']
+  )
+end
+
 template '/opt/tyk-gateway/tyk.conf' do
   source 'tyk.conf.erb'
   variables(

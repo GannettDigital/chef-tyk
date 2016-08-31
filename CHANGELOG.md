@@ -3,6 +3,10 @@ tyk CHANGELOG
 
 This file is used to list changes made in each version of the tyk cookbook.
 
+0.2.6
+-----
+- Marcelo Mandolesi - PAAS-1806 increasing open file limit on gateways for CentOS7 via service file
+
 0.2.5
 -----
 - Marcelo Mandolesi - PAAS-1806 increasing open file limit on gateways

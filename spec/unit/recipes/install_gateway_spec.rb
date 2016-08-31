@@ -43,6 +43,10 @@ describe 'tyk::install_gateway' do
       expect(chef_run).to install_package('tyk-gateway')
     end
 
+    it 'creates a template `/usr/lib/systemd/system/tyk-gateway.service`' do
+      expect(chef_run).to create_template('/usr/lib/systemd/system/tyk-gateway.service')
+    end
+
     it 'creates a template `/opt/tyk-gateway/tyk.conf`' do
       expect(chef_run).to create_template('/opt/tyk-gateway/tyk.conf')
     end
