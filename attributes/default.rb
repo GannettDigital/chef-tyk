@@ -48,6 +48,8 @@ default['tyk']['gateway']['config']['hash_keys'] = true
 default['tyk']['gateway']['config']['suppress_redis_signal_reload'] = false
 default['tyk']['gateway']['config']['close_connections'] = true
 default['tyk']['gateway']['config']['local_session_cache']['disable_cached_session_state'] = true
+default['tyk']['gateway']['open_file_limit_nofile'] = 65536
+default['tyk']['gateway']['open_file_limit_nproc'] = 65536
 
 # Dashboard
 default['tyk']['dashboard']['install_path'] = '/opt/tyk-dashboard'

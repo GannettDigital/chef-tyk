@@ -1,0 +1,14 @@
+[Unit]
+Description=Tyk API Gateway
+
+[Service]
+LimitNOFILE=<%= @open_file_limit_nofile %>
+LimitNPROC=<%= @open_file_limit_nproc %>
+Type=simple
+User=root
+Group=root
+ExecStart=/opt/tyk-gateway/tyk --conf=/opt/tyk-gateway/tyk.conf
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
