@@ -134,3 +134,8 @@ default['tyk']['pump']['config']['pumps']['mongo']['meta']['mongo_url'] = 'mongo
 default['tyk']['pump']['config']['uptime_pump_config']['collection_name'] = 'tyk_analytics'
 default['tyk']['pump']['config']['uptime_pump_config']['mongo_url'] = 'mongodb://127.0.0.1:27017/tyk_analytics'
 default['tyk']['pump']['config']['dont_purge_uptime_data'] = false
+
+default['tyk']['sink']['package_version'] = '1.0.0.2'
+default['tyk']['sink']['package_source'] = 'http://artifactory.gannettdigital.com/artifactory/binaries/tyk/tyk-sink/' \
+  "tyk-mdcb-linux-amd64-#{node['tyk']['sink']['package_version']}.tar.gz"
+default['tyk']['sink']['package_path'] = '/opt/tyk-sink/'
