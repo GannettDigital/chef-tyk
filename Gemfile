@@ -1,7 +1,10 @@
 source 'https://rubygems.org'
 
+# custom gems and versions
+gem 'chef-handler-datadog', '= 0.6.0'
+gem 'chef-handler-profiler', '= 0.0.2'
 gem 'chef-zero', '= 4.7.0'
-gem 'kitchen-ec2', '= 1.1.0'
+gem 'test-kitchen', '= 1.8.0'
 
 # chefdk gem pinnings
 # https://github.com/chef/chef-dk/blob/bc4b19f8ae7f613a929058cf4cf53514713109e9/Gemfile.lock
@@ -30,7 +33,7 @@ group :integration do
   gem 'chef', '= 12.11.18'
   gem 'chef-config', '= 12.11.18'
   gem 'chef-dk', '= 0.15.15'
-  gem 'chef-provisioning', '= 1.8.0'
+  gem 'chef-provisioning', '= 1.9.1'
   gem 'chef-provisioning-aws', '= 1.10.0'
   gem 'chef-provisioning-azure', '= 0.5.0'
   gem 'chef-provisioning-fog', '= 0.19.0'
@@ -40,7 +43,6 @@ group :integration do
   gem 'chefspec', '= 4.7.0'
   gem 'cleanroom', '= 1.0.0'
   gem 'coderay', '= 1.1.1'
-  gem 'compat_resource', '= 12.10.6'
   gem 'cookbook-omnifetch', '= 0.2.3'
   gem 'cucumber-core', '= 1.5.0'
   gem 'debug_inspector', '= 0.0.2'
@@ -105,8 +107,7 @@ group :integration do
   gem 'jmespath', '= 1.2.4'
   gem 'json', '= 1.8.3'
   gem 'json_pure', '= 1.8.3'
-  # This version has a race condition bug. bumped above.
-  # gem 'kitchen-ec2', '= 1.0.0'
+  gem 'kitchen-ec2', '= 1.1.0'
   gem 'kitchen-inspec', '= 0.14.0'
   gem 'kitchen-vagrant', '= 0.20.0'
   gem 'knife-push', '= 1.0.1'

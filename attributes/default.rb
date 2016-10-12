@@ -135,7 +135,18 @@ default['tyk']['pump']['config']['uptime_pump_config']['collection_name'] = 'tyk
 default['tyk']['pump']['config']['uptime_pump_config']['mongo_url'] = 'mongodb://127.0.0.1:27017/tyk_analytics'
 default['tyk']['pump']['config']['dont_purge_uptime_data'] = false
 
+default['tyk']['sink']['open_file_limit_nofile'] = 65536
+default['tyk']['sink']['open_file_limit_nproc'] = 65536
+default['tyk']['sink']['config']['listen_port'] = 9090
 default['tyk']['sink']['package_version'] = '1.0.0.2'
 default['tyk']['sink']['package_source'] = 'http://artifactory.gannettdigital.com/artifactory/binaries/tyk/tyk-sink/' \
   "tyk-mdcb-linux-amd64-#{node['tyk']['sink']['package_version']}.tar.gz"
-default['tyk']['sink']['package_path'] = '/opt/tyk-sink/'
+default['tyk']['sink']['package_path'] = '/opt/tyk-sink'
+default['tyk']['sink']['package_extracted_path'] = "tyk-mdcb.linux.amd64-#{node['tyk']['sink']['package_version']}"
+
+default['tyk']['sink']['config']['storage']['type'] = 'redis'
+default['tyk']['sink']['config']['storage']['host'] = 'localhost'
+default['tyk']['sink']['config']['storage']['port'] = 6379
+default['tyk']['sink']['config']['hash_keys'] = true
+default['tyk']['sink']['config']['analytics']['mongo_url'] = 'mongodb://127.0.0.1:27017/tyk_analytics'
+default['tyk']['sink']['config']['license'] = ''

@@ -4,7 +4,7 @@ maintainer_email 'paas-delivery@gannett.com'
 license ' Copyright (c) 2016 Gannett Co., Inc, All Rights Reserved.'
 description      'Installs/Configures tyk'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version          '0.2.7'
+version          '0.3.0'
 
 %w( debian ubuntu centos redhat fedora scientific oracle ).each do |os|
   supports os
