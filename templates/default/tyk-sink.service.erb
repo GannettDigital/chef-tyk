@@ -1,0 +1,14 @@
+[Unit]
+Description=Tyk API Sink Service
+
+[Service]
+LimitNOFILE=<%= @open_file_limit_nofile %>
+LimitNPROC=<%= @open_file_limit_nproc %>
+Type=simple
+User=root
+Group=root
+ExecStart=/opt/tyk-sink/tyk-sink -c=/opt/tyk-sink/tyk-sink.conf
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

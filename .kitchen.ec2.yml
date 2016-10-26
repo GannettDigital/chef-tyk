@@ -76,3 +76,14 @@ suites:
       config:
         log_level: ":debug"
 
+  - name: sink
+    run_list:
+      - recipe[gd-test-helper::default]
+      - recipe[gdp-base-linux]
+      - recipe[tyk::install_redis]
+      - recipe[tyk::install_mongo]
+      - recipe[tyk::install_sink]
+    attributes:
+    chef_client:
+      config:
+        log_level: ":debug"

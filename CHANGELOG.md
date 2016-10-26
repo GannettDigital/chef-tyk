@@ -3,6 +3,9 @@ tyk CHANGELOG
 
 This file is used to list changes made in each version of the tyk cookbook.
 
+0.3.0
+- Jason Neves - PAAS-944 added support for tyk-sink (MDCB) component
+
 0.2.6
 -----
 - Marcelo Mandolesi - PAAS-1806 increasing open file limit on gateways for CentOS7 via service file

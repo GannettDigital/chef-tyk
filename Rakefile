@@ -1,5 +1,7 @@
+gem 'test-kitchen', '1.8.0'
 gem 'rubocop', '= 0.39.0'
 gem 'foodcritic', '= 6.3.0'
+gem 'serverspec', '= 2.36.0'
 
 require 'rspec/core/rake_task'
 require 'rubocop/rake_task'

@@ -15,6 +15,37 @@ bootstrap.
 recipes. You will want to change the configuration attributes. Best solution
 is to create your own wrapper cookbook, where you set the `default` attributes.
 
+Tyk MDCB (sink) attribute descriptions:
+
+Filesystem tuning:
+default['tyk']['sink']['open_file_limit_nofile'] = 65536
+default['tyk']['sink']['open_file_limit_nproc'] = 65536
+
+Listen port for service:
+default['tyk']['sink']['config']['listen_port'] = 9090
+
+Package location and version:
+default['tyk']['sink']['package_version'] = '1.0.0.2'
+default['tyk']['sink']['package_source'] = 'http://artifactory.gannettdigital.com/artifactory/binaries/tyk/tyk-sink/' \
+  "tyk-mdcb-linux-amd64-#{node['tyk']['sink']['package_version']}.tar.gz"
+default['tyk']['sink']['package_path'] = '/opt/tyk-sink'
+default['tyk']['sink']['package_extracted_path'] = "tyk-mdcb.linux.amd64-#{node['tyk']['sink']['package_version']}"
+
+Redis backend connection details:
+default['tyk']['sink']['config']['storage']['type'] = 'redis'
+default['tyk']['sink']['config']['storage']['host'] = 'localhost'
+default['tyk']['sink']['config']['storage']['port'] = 6379
+
+Enable or disable hashing of keys:
+default['tyk']['sink']['config']['hash_keys'] = true
+
+Mongo backend connection details:
+default['tyk']['sink']['config']['analytics']['mongo_url'] = 'mongodb://127.0.0.1:27017/tyk_analytics'
+
+License key:
+default['tyk']['sink']['config']['license'] = ''
+
+
 ## Contributing
 
 1. Fork the repository on Github
