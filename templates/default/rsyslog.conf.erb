@@ -1,0 +1,3 @@
+$OmitLocalLoggin off
+$ModLoad imjournal # provides access to the systemd journal
+if $programname == '<%= @processname %>' then /var/log/tyk/<%= @processname %>.log

@@ -30,9 +30,12 @@ link "#{node['tyk']['sink']['package_path']}/tyk-sink" do
   to "#{node['tyk']['sink']['package_path']}/#{node['tyk']['sink']['package_extracted_path']}/tyk-sink"
 end
 
-service 'tyk-sink' do
-  supports start: true, stop: true, restart: true, status: true
-  action [:enable, :start]
+template '/etc/rsyslog.d/tyk-sink.conf' do
+  source 'rsyslog.conf.erb'
+  variables(
+    :processname => 'tyk-sink'
+  )
+  notifies :restart, 'service[rsyslog]', :delayed
 end
 
 template '/opt/tyk-sink/tyk-sink.conf' do
@@ -40,5 +43,14 @@ template '/opt/tyk-sink/tyk-sink.conf' do
   variables(
     :config => node['tyk']['sink']['config']
   )
-  notifies :restart, 'service[tyk-sink]'
+  notifies :restart, 'service[tyk-sink]', :immediate
+end
+
+service 'tyk-sink' do
+  supports start: true, stop: true, restart: true, status: true
+  action [:enable, :start]
+end
+
+service 'rsyslog' do
+  action [:nothing]
 end

@@ -21,9 +21,9 @@ transport:
   ssh_key: ~/.ssh/<%= ENV['AWS_SSH_KEY'] %>.pem
 
 platforms:
-  - name: centos-7.1
+  - name: gci-centos7
     driver:
-      image_id: <%= ENV['AWS_CENTOS7_AMI_ID'] %>
+      image_id: <%= ENV['AWS_GCI_CENTOS7_AMI_ID'] %>
       instance_type: <%= ENV['LINUX_INSTANCE_SIZE'] %>
       user_data: <%= ENV['LINUX_USER_DATA_PATH'] %>
     transport:
@@ -33,7 +33,7 @@ suites:
   - name: default
     run_list:
       - recipe[gd-test-helper::default]
-      - recipe[gdp-base-linux]
+      - recipe[base-centos]
       - recipe[tyk::default]
     attributes:
     chef_client:
@@ -43,7 +43,7 @@ suites:
   - name: gateway
     run_list:
       - recipe[gd-test-helper::default]
-      - recipe[gdp-base-linux]
+      - recipe[base-centos]
       - recipe[tyk::install_redis]
       - recipe[tyk::install_mongo]
       - recipe[tyk::install_gateway]
@@ -55,7 +55,7 @@ suites:
   - name: dashboard
     run_list:
       - recipe[gd-test-helper::default]
-      - recipe[gdp-base-linux]
+      - recipe[base-centos]
       - recipe[tyk::install_redis]
       - recipe[tyk::install_mongo]
       - recipe[tyk::install_dashboard]
@@ -67,7 +67,7 @@ suites:
   - name: pump
     run_list:
       - recipe[gd-test-helper::default]
-      - recipe[gdp-base-linux]
+      - recipe[base-centos]
       - recipe[tyk::install_redis]
       - recipe[tyk::install_mongo]
       - recipe[tyk::install_pump]
@@ -79,7 +79,7 @@ suites:
   - name: sink
     run_list:
       - recipe[gd-test-helper::default]
-      - recipe[gdp-base-linux]
+      - recipe[base-centos]
       - recipe[tyk::install_redis]
       - recipe[tyk::install_mongo]
       - recipe[tyk::install_sink]
