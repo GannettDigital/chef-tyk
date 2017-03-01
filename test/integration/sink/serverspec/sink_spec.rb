@@ -22,4 +22,13 @@ describe "tyk-sink" do
   describe command('firewall-cmd --permanent --direct --get-all-rules'), if: firewalld? do
     its(:stdout) { should contain "ipv4 filter INPUT 50 -p tcp -m tcp -m multiport --dports 9090 -m comment --comment tyk-sink -j ACCEPT" }
   end
+
+  describe file('/etc/rsyslog.d/tyk-sink.conf') do
+    it { should be_file }
+    it { should contain "if $programname == 'tyk-sink' then /var/log/tyk/tyk-sink.log" }
+  end
+
+  describe file('/var/log/tyk/tyk-sink.log') do
+    it { should be_file }
+  end
 end

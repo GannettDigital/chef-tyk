@@ -6,16 +6,13 @@ provisioner:
   name: chef_zero
 
 platforms:
-  - name: centos-7.1
-    driver:
-      box: centos-71
-      box_url: https://deploy.gmti.gbahn.net/Images/centos7/vagrant/centos71-cloud-1.0.0.box
+  - name: gannett/gci-centos7
 
 suites:
   - name: default
     run_list:
       - recipe[gd-test-helper::default]
-      - recipe[gdp-base-linux]
+      - recipe[base-centos]
       - recipe[tyk::default]
     attributes:
     chef_client:
@@ -25,7 +22,7 @@ suites:
   - name: gateway
     run_list:
       - recipe[gd-test-helper::default]
-      - recipe[gdp-base-linux]
+      - recipe[base-centos]
       - recipe[tyk::install_redis]
       - recipe[tyk::install_mongo]
       - recipe[tyk::install_gateway]
@@ -37,7 +34,7 @@ suites:
   - name: dashboard
     run_list:
       - recipe[gd-test-helper::default]
-      - recipe[gdp-base-linux]
+      - recipe[base-centos]
       - recipe[tyk::install_redis]
       - recipe[tyk::install_mongo]
       - recipe[tyk::install_dashboard]
@@ -49,7 +46,7 @@ suites:
   - name: pump
     run_list:
       - recipe[gd-test-helper::default]
-      - recipe[gdp-base-linux]
+      - recipe[base-centos]
       - recipe[tyk::install_redis]
       - recipe[tyk::install_mongo]
       - recipe[tyk::install_pump]
@@ -61,7 +58,7 @@ suites:
   - name: sink
     run_list:
       - recipe[gd-test-helper::default]
-      - recipe[gdp-base-linux]
+      - recipe[base-centos]
       - recipe[tyk::install_redis]
       - recipe[tyk::install_mongo]
       - recipe[tyk::install_sink]

@@ -16,6 +16,18 @@ template '/opt/tyk-pump/pump.conf' do
   notifies :restart, 'service[tyk-pump]'
 end
 
+template '/etc/rsyslog.d/tyk-pump.conf' do
+  source 'rsyslog.conf.erb'
+  variables(
+    :processname => 'tyk-pump'
+  )
+  notifies :restart, 'service[rsyslog]', :delayed
+end
+
+service 'rsyslog' do
+  action [:nothing]
+end
+
 service 'tyk-pump' do
   action [:enable, :start]
   supports restart: true, reload: false, status: true

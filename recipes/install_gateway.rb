@@ -39,6 +39,14 @@ template '/usr/lib/systemd/system/tyk-gateway.service' do
   )
 end
 
+template '/etc/rsyslog.d/tyk.conf' do
+  source 'rsyslog.conf.erb'
+  variables(
+    :processname => 'tyk'
+  )
+  notifies :restart, 'service[rsyslog]', :delayed
+end
+
 template '/opt/tyk-gateway/tyk.conf' do
   source 'tyk.conf.erb'
   variables(
@@ -50,4 +58,8 @@ end
 service 'tyk-gateway' do
   action [:enable, :start]
   supports restart: true, reload: false, status: true
+end
+
+service 'rsyslog' do
+  action [:nothing]
 end

@@ -21,4 +21,12 @@ describe "tyk-dashboard" do
     its(:stdout) { should contain "ipv4 filter INPUT 50 -p tcp -m tcp -m multiport --dports 3000 -m comment --comment tyk-dashboard -j ACCEPT" }
   end
 
+  describe file('/etc/rsyslog.d/tyk-analytics.conf') do
+    it { should be_file }
+    it { should contain "if $programname == 'tyk-analytics' then /var/log/tyk/tyk-analytics.log" }
+  end
+
+  describe file('/var/log/tyk/tyk-analytics.log') do
+    it { should be_file }
+  end
 end

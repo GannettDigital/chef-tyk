@@ -3,6 +3,9 @@ tyk CHANGELOG
 
 This file is used to list changes made in each version of the tyk cookbook.
 
+0.4.0
+- Jason Neves - PAAS-4754 added support for sending logs to rsyslog, updated testing to use base-centos
+
 0.3.0
 - Jason Neves - PAAS-944 added support for tyk-sink (MDCB) component
 

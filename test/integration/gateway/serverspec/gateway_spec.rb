@@ -13,6 +13,15 @@ describe "tyk-gateway" do
     expect(port(8080)).to be_listening
   end
 
+  describe file('/etc/rsyslog.d/tyk.conf') do
+    it { should be_file }
+    it { should contain "if $programname == 'tyk' then /var/log/tyk/tyk.log" }
+  end
+
+  describe file('/var/log/tyk/tyk.log') do
+    it { should be_file }
+  end
+
  # Firewall checks
   describe command('iptables-save'), if: iptables? do
     its(:stdout) { should contain '-A INPUT -p tcp -m tcp -m multiport --dports 8080 -m comment --comment "tyk-gateway" -j ACCEPT' }
