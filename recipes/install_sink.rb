@@ -33,7 +33,7 @@ end
 template '/etc/rsyslog.d/tyk-sink.conf' do
   source 'rsyslog.conf.erb'
   variables(
-    :processname => 'tyk-sink' 
+    :processname => 'tyk-sink'
   )
   notifies :restart, 'service[rsyslog]', :delayed
 end
