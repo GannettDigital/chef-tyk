@@ -16,6 +16,7 @@ describe "tyk-gateway" do
   describe file('/etc/rsyslog.d/tyk.conf') do
     it { should be_file }
     it { should contain "if $programname == 'tyk' then /var/log/tyk/tyk.log" }
+    it { should contain "& ~" }
   end
 
   describe file('/var/log/tyk/tyk.log') do

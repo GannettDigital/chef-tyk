@@ -3,6 +3,9 @@ tyk CHANGELOG
 
 This file is used to list changes made in each version of the tyk cookbook.
 
+0.4.1
+- Ed De - PAAS-5925 change messages from journalctl rsyslog so not duplicated
+
 0.4.0
 - Jason Neves - PAAS-4754 added support for sending logs to rsyslog, updated testing to use base-centos
 
