@@ -12,6 +12,7 @@ describe "tyk-pump" do
   describe file('/etc/rsyslog.d/tyk-pump.conf') do
     it { should be_file }
     it { should contain "if $programname == 'tyk-pump' then /var/log/tyk/tyk-pump.log" }
+    it { should contain "& ~" }
   end
 
   describe file('/var/log/tyk/tyk-pump.log') do

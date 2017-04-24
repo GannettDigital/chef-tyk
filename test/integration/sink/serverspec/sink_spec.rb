@@ -26,6 +26,7 @@ describe "tyk-sink" do
   describe file('/etc/rsyslog.d/tyk-sink.conf') do
     it { should be_file }
     it { should contain "if $programname == 'tyk-sink' then /var/log/tyk/tyk-sink.log" }
+    it { should contain "& ~" }
   end
 
   describe file('/var/log/tyk/tyk-sink.log') do
