@@ -26,7 +26,7 @@ default['tyk']['sink']['config']['listen_port'] = 9090
 
 Package location and version:
 default['tyk']['sink']['package_version'] = '1.0.0.2'
-default['tyk']['sink']['package_source'] = 'http://artifactory.gannettdigital.com/artifactory/paas-optimization/tyk/tyk-sink/' \
+default['tyk']['sink']['package_source'] = 'https://artifactory.gannettdigital.com/artifactory/paas-optimization/tyk/tyk-sink/' \
   "tyk-mdcb-linux-amd64-#{node['tyk']['sink']['package_version']}.tar.gz"
 default['tyk']['sink']['package_path'] = '/opt/tyk-sink'
 default['tyk']['sink']['package_extracted_path'] = "tyk-mdcb.linux.amd64-#{node['tyk']['sink']['package_version']}"
