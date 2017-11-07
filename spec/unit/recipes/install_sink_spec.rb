@@ -29,13 +29,17 @@ describe 'tyk::install_sink' do
     it 'creates a template `/opt/tyk-sink/tyk-sink.conf`' do
       expect(chef_run).to create_template('/opt/tyk-sink/tyk-sink.conf')
     end
-    
+
     it 'creates a template `/usr/lib/systemd/system/tyk-sink.service`' do
       expect(chef_run).to create_template('/usr/lib/systemd/system/tyk-sink.service')
     end
 
     it 'creates a symlink `/opt/tyk-sink/tyk-sink`' do
       expect(chef_run).to create_link('/opt/tyk-sink/tyk-sink')
+    end
+
+    it 'creates a template `/etc/rsyslog.d/tyk-sink.conf`' do
+      expect(chef_run).to create_template('/etc/rsyslog.d/tyk-sink.conf')
     end
 
     it 'starts service `tyk-sink`' do

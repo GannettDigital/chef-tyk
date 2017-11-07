@@ -20,10 +20,14 @@ describe 'tyk::install_dashboard' do
     it 'creates firewall rules' do
       chef_run.converge(described_recipe)
       expect(chef_run).to create_firewall_rule('tyk-dashboard')
-    end  
+    end
 
     it 'installs the package `tyk-dashboard`' do
       expect(chef_run).to install_package('tyk-dashboard')
+    end
+
+    it 'creates a template `/etc/rsyslog.d/tyk-analytics.conf`' do
+      expect(chef_run).to create_template('/etc/rsyslog.d/tyk-analytics.conf')
     end
 
     it 'creates a template `/opt/tyk-dashboard/tyk_analytics.conf`' do

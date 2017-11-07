@@ -3,6 +3,9 @@ tyk CHANGELOG
 
 This file is used to list changes made in each version of the tyk cookbook.
 
+0.4.2
+- Ed De - PAAS-10334 Bump version and update artifact path for sink binary.
+
 0.4.1
 - Ed De - PAAS-5925 change messages from journalctl rsyslog so not duplicated
 
