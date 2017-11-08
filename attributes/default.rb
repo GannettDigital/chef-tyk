@@ -138,8 +138,8 @@ default['tyk']['pump']['config']['dont_purge_uptime_data'] = false
 default['tyk']['sink']['open_file_limit_nofile'] = 65536
 default['tyk']['sink']['open_file_limit_nproc'] = 65536
 default['tyk']['sink']['config']['listen_port'] = 9090
-default['tyk']['sink']['package_version'] = '1.0.0.2'
-default['tyk']['sink']['package_source'] = 'http://artifactory.gannettdigital.com/artifactory/binaries/tyk/tyk-sink/' \
+default['tyk']['sink']['package_version'] = '1.3.2.0'
+default['tyk']['sink']['package_source'] = 'https://artifactory.gannettdigital.com/artifactory/paas-optimization/tyk/tyk-sink/' \
   "tyk-mdcb-linux-amd64-#{node['tyk']['sink']['package_version']}.tar.gz"
 default['tyk']['sink']['package_path'] = '/opt/tyk-sink'
 default['tyk']['sink']['package_extracted_path'] = "tyk-mdcb.linux.amd64-#{node['tyk']['sink']['package_version']}"

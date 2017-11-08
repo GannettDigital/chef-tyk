@@ -47,6 +47,15 @@ describe 'tyk::install_gateway' do
       expect(chef_run).to create_template('/usr/lib/systemd/system/tyk-gateway.service')
     end
 
+    it 'creates a template `/etc/rsyslog.d/tyk.conf`' do
+      expect(chef_run).to create_template('/etc/rsyslog.d/tyk.conf')
+    end
+
+    it 'expect service `rsyslog`' do
+        rsyslog_service = chef_run.service('rsyslog')
+        expect(rsyslog_service).to do_nothing
+    end
+
     it 'creates a template `/opt/tyk-gateway/tyk.conf`' do
       expect(chef_run).to create_template('/opt/tyk-gateway/tyk.conf')
     end

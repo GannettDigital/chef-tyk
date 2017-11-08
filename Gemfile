@@ -158,7 +158,7 @@ group :integration do
   gem 'polyglot', '= 0.3.5'
   gem 'proxifier', '= 1.0.3'
   gem 'pry', '= 0.10.3'
-  gem 'pry-byebug', '= 3.4.0'
+  gem 'pry-byebug', '= 3.4.3'
   gem 'pry-remote', '= 0.1.8'
   gem 'pry-stack_explorer', '= 0.4.9.2'
   gem 'rack', '= 1.6.4'
